@@ -1,0 +1,12 @@
+POST http://localhost:4000/accounts/register
+Content-Type: application/json
+
+{
+  "title": "Mr",
+  "firstName": "Ryan",
+  "lastName": "Lastname",
+  "email": "ryan@example.com",
+  "password": "my-super-secret-password",
+  "confirmPassword": "my-super-secret-password",
+  "acceptTerms": true
+}

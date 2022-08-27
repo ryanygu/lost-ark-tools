@@ -1,0 +1,7 @@
+POST http://localhost:4000/accounts/revoke-token
+Content-Type: application/json
+Authorization: Bearer insert_token_here
+
+{
+  "token": "enter active refresh token from cookie here"
+}

@@ -1,0 +1,6 @@
+POST http://localhost:4000/accounts/verify-email
+Content-Type: application/json
+
+{
+  "token": "c85f75f6b656580a70f379f68220318fc01458e9065c4894f38b6a3557730a7951281109e8cb932b"
+}

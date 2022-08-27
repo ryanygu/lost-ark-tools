@@ -1,0 +1,3 @@
+DELETE http://localhost:4000/accounts/{id}
+Content-Type: application/json
+Authorization: Bearer insert_token_here
