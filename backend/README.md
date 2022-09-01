@@ -1,8 +1,5 @@
 # Node + MongoDB Backend
 
-Boilerplate from [here](https://jasonwatmore.com/post/2020/05/13/node-mongo-api-with-email-sign-up-verification-authentication-forgot-password).
-
-
 ## Features
 
 ---
@@ -24,7 +21,7 @@ Security
 - HTTP Only cookies are used for increased security because they are not accessible to client-side JavaScript with prevents cross-site scripting (XSS)
   - The refresh token (HTTP Only cookie) can only be used to fetch a new JWT token from the `/accounts/refresh-token` route which prevents cross-site request forgery (CSRF)
 - Each time a refresh token is used to generate a new JWT token, the refresh token is revoked and replaced by a new refresh token
-  - This is known as "Refresh Token Rotation" and increases securtiy by reducing the lifetime of refresh tokens, which makes it less likely that a compromised token will be valid
+  - This "Refresh Token Rotation" increases securtiy by reducing the lifetime of refresh tokens, which makes it less likely that a compromised token will be valid
 
 
 ## Setup
@@ -44,3 +41,7 @@ cd frontend
 npm install
 npm start
 ```
+
+## Acknowledgements
+
+Boilerplate from [here](https://jasonwatmore.com/).

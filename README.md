@@ -10,8 +10,17 @@ username: user1@example.com
 password: test123
 ```
 
-Will be able to do a live demo of user registration upon request.
+Will be able to do a live demo of user registration and an admin account upon request.
 
-## More details
+## Details
+
+This is a MERN stack app hosted on AWS EC2 with an Ubuntu server with NGINX.
+
+Major features:
+- Email signup and verification
+- JWT authentication with browser cookie based refreshing
+- RESTful API
+- Role based access control (Admin, User, etc.)
+
 
 See the READMEs in `/frontend` and `/backend` for more details.
