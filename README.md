@@ -1,6 +1,6 @@
 # Lost Ark Tools
 
-Link: [http://3.22.163.215/account/login](http://3.22.163.215/account/login)
+Link: [http://ec2-3-142-99-145.us-east-2.compute.amazonaws.com/](http://ec2-3-142-99-145.us-east-2.compute.amazonaws.com/)
 
 Currently using a mock SMTP service via `ethereal.email`, so emails will not actually be sent out but will be displayed in the fake inbox.
 

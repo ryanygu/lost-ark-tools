@@ -1,5 +1,5 @@
 import React from "react"
-
+import { alertService } from '@/_services';
 import FacetingNode from "./FacetingNode"
 
 const FacetingLine = ({ data, lineType, setFacetingData }) => {
@@ -20,7 +20,8 @@ const FacetingLine = ({ data, lineType, setFacetingData }) => {
 
   const handleEngravingClick = (data, nodes, lineType) => {
     if (nodes.indexOf('?') === -1) {
-      window.alert('line disabled: all nodes completed')
+      alertService.clear();
+      alertService.error('All nodes completed in this line!')
       return
     }
 
@@ -83,7 +84,7 @@ const FacetingLine = ({ data, lineType, setFacetingData }) => {
         {label} {data.rate}%
       </td>
       <td style={{ whiteSpace: 'nowrap' }}>
-        <button className="btn btn-sm btn-primary mr-1" value={lineType} onClick={() => handleEngravingClick(data, nodes, lineType)}>go</button>
+        <button className="btn btn-sm btn-primary mr-1" value={lineType} onClick={() => handleEngravingClick(data, nodes, lineType)}>Go</button>
       </td>
     </>
   )

@@ -8,7 +8,7 @@ function Leaderboards({ match }) {
     
     return (
         <div className="p-4">
-            <div className="container">
+            <div className="container" id="leaderboards">
                 <Switch>
                     <Route exact path={path} component={Leaderboard} />
                 </Switch>

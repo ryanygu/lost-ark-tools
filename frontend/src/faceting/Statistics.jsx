@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { accountService } from '@/_services';
-import { utils } from '../_helpers';
+import { utils, history } from '../_helpers';
+import { ArrowLeft } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 import {
     Chart as ChartJS,
@@ -27,8 +29,9 @@ ChartJS.register(
 
 
 
-function Statistics ({ match }) {
+function Statistics ({ match, history }) {
     const [scores, setScores] = useState([]);
+    const [facetingHistory, setFacetingHistory] = useState([]);
 
     useEffect(() => {
         const user = accountService.userValue;
@@ -36,6 +39,7 @@ function Statistics ({ match }) {
             .then(res => {
                 const sortedData = utils.sortByCreatedDate(res)
                 setScores(sortedData.map(x => x.score))
+                setFacetingHistory(sortedData)
             });
     }, []);
 
@@ -71,6 +75,7 @@ function Statistics ({ match }) {
 
     return (
         <div>
+            <button type="button" onClick={() => history.goBack()} className="btn btn-outline-primary"><ArrowLeft/> Back</button>
             <h1>Statistics</h1>
             <p>Attempts: {scores.length}</p>
             <p>Min: {min}</p>

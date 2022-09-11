@@ -15,7 +15,8 @@ router.post('/verify-email', verifyEmailSchema, verifyEmail);
 router.post('/forgot-password', forgotPasswordSchema, forgotPassword);
 router.post('/validate-reset-token', validateResetTokenSchema, validateResetToken);
 router.post('/reset-password', resetPasswordSchema, resetPassword);
-router.get('/', authorize(), getAll);
+router.get('/', getAll); // TODO: make separate route for leaderboards data
+// router.get('/', authorize(), getAll); 
 router.get('/:id', authorize(), getById);
 router.post('/', authorize(Role.Admin), createSchema, create);
 router.put('/:id', authorize(), updateSchema, update);
@@ -33,6 +34,7 @@ function authenticateSchema(req, res, next) {
 
 function authenticate(req, res, next) {
     const { email, password } = req.body;
+    
     const ipAddress = req.ip;
     accountService.authenticate({ email, password, ipAddress })
         .then(({ refreshToken, ...account }) => {

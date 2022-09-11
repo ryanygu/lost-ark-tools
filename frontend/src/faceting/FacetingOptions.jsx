@@ -48,17 +48,29 @@ const FacetingOptions = ({ data, setFacetingData }) => {
         })
         .catch(error => {
           alertService.error(error);
+          console.log(error)
         });
       return null
     }
-    window.alert('cannot save: not all nodes are filled')
+    alertService.error('Cannot save: not all nodes are filled yet.');
   }
 
   return (
     <div>
-      <p>Engraving Options</p>
-      <button onClick={() => handleFacetingReset()} className="btn btn-sm btn-danger">reset</button>
-      <button onClick={() => handleFacetingSave()} className="btn btn-sm btn-primary mr-1" style={{ "marginLeft": "10px" }}>save</button>
+      <div>
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Stone Rarity (coming soon)
+        </button>
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li className="dropdown-item">Rare</li>
+          <li className="dropdown-item">Epic</li>
+          <li className="dropdown-item">Legendary</li>
+          <li className="dropdown-item">Relic</li>
+        </ul>
+      </div>
+      <br/>
+      <button onClick={() => handleFacetingReset()} className="btn btn-danger">Reset</button>
+      <button onClick={() => handleFacetingSave()} className="btn btn-primary mr-1" style={{ "marginLeft": "10px" }}>Save</button>
     </div>
   )
 }

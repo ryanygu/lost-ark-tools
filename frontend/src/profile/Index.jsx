@@ -9,10 +9,10 @@ function Profile({ match }) {
     
     return (
         <div className="p-4">
-            <div className="container">
+            <div className="container" id="profile">
                 <Switch>
                     <Route exact path={path} component={Details} />
-                    <Route path={`${path}/statistics`} component={Update} />
+                    <Route path={`${path}/update`} component={Update} />
                 </Switch>
             </div>
         </div>

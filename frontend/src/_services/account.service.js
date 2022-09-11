@@ -20,6 +20,7 @@ export const accountService = {
     create,
     update,
     delete: _delete,
+    refreshCurrentUser,
     user: userSubject.asObservable(),
     get userValue () { return userSubject.value },
 };
@@ -95,6 +96,15 @@ function update(id, params) {
             }
             return user;
         });
+}
+
+function refreshCurrentUser(user) {
+    if (user.id === userSubject.value.id) {
+        // publish updated user to subscribers
+        user = { ...userSubject.value, ...user };
+        userSubject.next(user);
+    }
+    return user;
 }
 
 // prefixed with underscore because 'delete' is a reserved word in javascript

@@ -56,7 +56,7 @@ function Register({ history }) {
                     <h3 className="card-header">Register</h3>
                     <div className="card-body">
                         <div className="form-row">
-                            <div className="form-group col">
+                            <div className="form-group col-2">
                                 <label>Title</label>
                                 <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
                                     <option value=""></option>
@@ -67,12 +67,14 @@ function Register({ history }) {
                                 </Field>
                                 <ErrorMessage name="title" component="div" className="invalid-feedback" />
                             </div>
-                            <div className="form-group col-5">
+                        </div>
+                        <div className="form-group row">
+                            <div className="form-group col-6">
                                 <label>First Name</label>
                                 <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                             </div>
-                            <div className="form-group col-5">
+                            <div className="form-group col-6">
                                 <label>Last Name</label>
                                 <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
@@ -100,7 +102,7 @@ function Register({ history }) {
                             <label htmlFor="acceptTerms" className="form-check-label">Accept Terms & Conditions</label>
                             <ErrorMessage name="acceptTerms" component="div" className="invalid-feedback" />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group form-buttons-bottom">
                             <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                 Register

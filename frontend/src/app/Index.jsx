@@ -10,6 +10,7 @@ import { Admin } from '@/admin';
 import { Account } from '@/account';
 import { Faceting } from '@/faceting';
 import { Leaderboards } from '@/leaderboards';
+import { Landing } from '@/landing';
 
 function App() {
     const { pathname } = useLocation();  
@@ -23,16 +24,17 @@ function App() {
     // The first <Redirect .../> automatically removes trailing slashes from URLs which can cause issues
     // and are a side-effect from using relative react router links (i.e. <Link to="." />)
     return (
-        <div className={'app-container' + (user && ' bg-light')}>
+        <div className={'app-container'}>
             <Nav />
             <Alert />
             <Switch>
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-                <PrivateRoute exact path="/" component={Home} />
+                <Route exact path="/" component={Landing} />
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/faceting" component={Faceting} />
-                <PrivateRoute path="/leaderboards" component={Leaderboards} />
+                <Route path="/leaderboards" component={Leaderboards} />
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
+                <PrivateRoute path="/dashboard" component={Home} />
                 <Route path="/account" component={Account} />
                 <Redirect from="*" to="/" />
             </Switch>

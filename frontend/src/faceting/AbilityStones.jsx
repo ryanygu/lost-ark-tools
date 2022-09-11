@@ -42,7 +42,7 @@ function AbilityStones ({ match }) {
                     <tr><FacetingLine data={facetingData} lineType={'line3'} setFacetingData={setFacetingData} /></tr>
                 </tbody>
             </table>
-            <p><Link to={`${path}/statistics`}>Statistics</Link></p>
+            <p><Link className="btn btn-primary" to={`${path}/statistics`}>Statistics</Link></p>
         </div>
     );
 }

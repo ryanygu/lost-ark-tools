@@ -9,7 +9,7 @@ function Faceting ({ match }) {
     
     return (
         <div className="p-4">
-            <div className="container">
+            <div className="container" id="faceting">
                 <Switch>
                     <Route exact path={path} component={AbilityStones} />
                     <Route path={`${path}/statistics`} component={Statistics} />

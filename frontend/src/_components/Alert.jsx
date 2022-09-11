@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { alertService, AlertType } from '@/_services';
 import { history } from '@/_helpers';
 
+import { X } from 'react-bootstrap-icons'
+
 const propTypes = {
     id: PropTypes.string,
     fade: PropTypes.bool
@@ -102,7 +104,7 @@ function Alert({ id, fade }) {
             <div className="m-3">
                 {alerts.map((alert, index) =>
                     <div key={index} className={cssClasses(alert)}>
-                        <a className="close" onClick={() => removeAlert(alert)}>&times;</a>
+                        <a className="close" style={{ paddingRight: "10px" }} onClick={() => removeAlert(alert)}><X color="grey" size={35}/></a>
                         <span dangerouslySetInnerHTML={{__html: alert.message}}></span>
                     </div>
                 )}

@@ -211,7 +211,6 @@ async function _delete(id) {
 async function getAccount(id) {
     if (!db.isValidId(id)) throw 'Account not found';
     const account = await db.Account.findById(id).populate('faceting');
-    print(account)
     if (!account) throw 'Account not found';
     return account;
 }
