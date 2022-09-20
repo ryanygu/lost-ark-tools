@@ -31,21 +31,23 @@ function Leaderboard({ match }) {
     return (
         <div>
             <h1>Leaderboards</h1>
-            <table className="table table-striped">
-                <thead>
+            <h3 className="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Egestas fringilla phasellus faucibus scelerisque eleifend.</h3>
+
+            <table className="table mt-5">
+                <thead className="">
                     <tr>
-                        <th style={{ width: '25%' }}>Name</th>
-                        <th style={{ width: '25%' }}>Email</th>
+                        <th style={{ width: '10%' }}>#</th>
+                        <th style={{ width: '40%' }}>Username</th>
                         <th style={{ width: '20%' }}>Total Faceting Score</th>
                         <th style={{ width: '20%' }}>Max Faceting Score</th>
                         <th style={{ width: '10%' }}>Attempts</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map(user =>
+                    {users && users.map((user, i) =>
                         <tr key={user.id}>
-                            <td>{user.title} {user.firstName} {user.lastName}</td>
-                            <td>{user.email}</td>
+                            <td>{i}</td>
+                            <td>{user.username}</td>
                             <td>{getTotalScore(user.faceting)}</td>
                             <td>{getMaxScore(user.faceting)}</td>
                             <td>{user.faceting.length}</td>
@@ -60,7 +62,7 @@ function Leaderboard({ match }) {
                     }
                 </tbody>
             </table>
-            <p> Next feature: sort by columns</p>
+            <h3 className="mt-5"><span className="highlight">Coming soon:</span> sort by columns, pagination</h3>
         </div>
     );
 }

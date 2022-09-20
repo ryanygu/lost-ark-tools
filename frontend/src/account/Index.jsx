@@ -22,8 +22,8 @@ function Account({ history, match }) {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-8 offset-sm-2 mt-5">
-                    <div className="card m-3">
+                <div className="col-sm-6 mx-auto mt-5">
+                    <div className="card m-3 p-3">
                         <Switch>
                             <Route path={`${path}/login`} component={Login} />
                             <Route path={`${path}/register`} component={Register} />

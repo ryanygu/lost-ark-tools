@@ -7,7 +7,7 @@ import { accountService, alertService } from '@/_services';
 
 function Register({ history }) {
     const initialValues = {
-        title: '',
+        username: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -17,8 +17,8 @@ function Register({ history }) {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string()
-            .required('Title is required'),
+        username: Yup.string()
+            .required('Username is required'),
         firstName: Yup.string()
             .required('First Name is required'),
         lastName: Yup.string()
@@ -53,22 +53,16 @@ function Register({ history }) {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
                 <Form>
-                    <h3 className="card-header">Register</h3>
+                    <h1 className="text-center">Register</h1>
                     <div className="card-body">
-                        <div className="form-row">
-                            <div className="form-group col-2">
-                                <label>Title</label>
-                                <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
-                                </Field>
-                                <ErrorMessage name="title" component="div" className="invalid-feedback" />
+                        <div className="form-row mb-3">
+                            <div className="form-group col-6">
+                                <label>Username</label>
+                                <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
+                                <ErrorMessage name="username" component="div" className="invalid-feedback" />
                             </div>
                         </div>
-                        <div className="form-group row">
+                        <div className="form-group row mb-3">
                             <div className="form-group col-6">
                                 <label>First Name</label>
                                 <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
@@ -80,30 +74,32 @@ function Register({ history }) {
                                 <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                             </div>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group mb-3">
                             <label>Email</label>
                             <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                             <ErrorMessage name="email" component="div" className="invalid-feedback" />
                         </div>
-                        <div className="form-row">
+                        <div className="form-row mb-3">
                             <div className="form-group col">
                                 <label>Password</label>
                                 <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
+                        </div>
+                        <div className="form-row mb-3">
                             <div className="form-group col">
                                 <label>Confirm Password</label>
                                 <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                                 <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                             </div>
                         </div>
-                        <div className="form-group form-check">
+                        <div className="form-group mb-3 form-check">
                             <Field type="checkbox" name="acceptTerms" id="acceptTerms" className={'form-check-input ' + (errors.acceptTerms && touched.acceptTerms ? ' is-invalid' : '')} />
                             <label htmlFor="acceptTerms" className="form-check-label">Accept Terms & Conditions</label>
                             <ErrorMessage name="acceptTerms" component="div" className="invalid-feedback" />
                         </div>
-                        <div className="form-group form-buttons-bottom">
-                            <button type="submit" disabled={isSubmitting} className="btn btn-primary">
+                        <div className="form-group mb-3 form-buttons-bottom">
+                            <button type="submit" disabled={isSubmitting} className="btn btn-primary px-3 rounded-pill">
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                 Register
                             </button>

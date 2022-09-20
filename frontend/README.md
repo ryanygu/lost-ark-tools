@@ -2,8 +2,6 @@
 
 ## Features
 
----
-
 - Email signup and verification
 - JWT authentication with refresh tokens
   - The JWT access token has a 15 minute expiry time that auto-refreshes if a refresh token exists (stored in a cookie, lasts for 7 days)
@@ -12,8 +10,6 @@
 - Private Admin page
 
 ## Design choices
-
----
 
 - `history.js` helper service is passed to `Router` instead of using `BrowserRouter` (which has history built in) because it allows us to access the history object outside of React components. An example is `logout()` in the `account.service.js`
 - Uses an `RxJS` observable for the current user information, allowing 'push' notifications for user login/logouts, which simplifies the state management
@@ -25,8 +21,6 @@
   - This groups the code more logically and keeps the folder structure shallow, making it easier to see everything at a glance
 
 ## Running the app locally
-
----
 
 ```
 cd frontend

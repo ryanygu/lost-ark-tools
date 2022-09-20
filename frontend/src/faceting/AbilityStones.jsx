@@ -26,14 +26,16 @@ function AbilityStones ({ match }) {
     return (
         <div>
             <h1>Ability Stone Faceting</h1>
+            <h3 className="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Egestas fringilla phasellus faucibus scelerisque eleifend.</h3>
+
             <FacetingOptions data={facetingData} setFacetingData={setFacetingData} />
             <table className="table">
                 <thead style={{ border: 'hidden' }}>
                     <tr>
-                        <th style={{ width: '10%' }}></th>
-                        {[...Array(9+1)].map((e, i) => <th style={{ width: '5%' }} key={i}></th>)}
-                        <th style={{ width: '30%' }}></th>
-                        <th style={{ width: '10%' }}></th>
+                        <th></th>
+                        {[...Array(9+1)].map((e, i) => <th key={i}></th>)}
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +45,9 @@ function AbilityStones ({ match }) {
                 </tbody>
             </table>
             <p><Link className="btn btn-primary" to={`${path}/statistics`}>Statistics</Link></p>
+
+            <h3 className="mt-5"><span className="highlight">Coming soon:</span> ability stone calculator, choose what stone rarity (rare, epic, legendary, relic) to facet</h3>
+
         </div>
     );
 }

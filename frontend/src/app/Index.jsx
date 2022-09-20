@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
-import { Nav, PrivateRoute, Alert } from '@/_components';
+import { Nav, PrivateRoute, Alert, Footer } from '@/_components';
 import { Home } from '@/home';
 import { Profile } from '@/profile';
 import { Admin } from '@/admin';
@@ -11,6 +11,7 @@ import { Account } from '@/account';
 import { Faceting } from '@/faceting';
 import { Leaderboards } from '@/leaderboards';
 import { Landing } from '@/landing';
+import { Forums } from '@/forums';
 
 function App() {
     const { pathname } = useLocation();  
@@ -36,8 +37,10 @@ function App() {
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
                 <PrivateRoute path="/dashboard" component={Home} />
                 <Route path="/account" component={Account} />
+                <Route path="/forums" component={Forums} />
                 <Redirect from="*" to="/" />
             </Switch>
+            <Footer />
         </div>
     );
 }

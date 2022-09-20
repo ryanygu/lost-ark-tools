@@ -13,7 +13,7 @@ function Home() {
                 <h1>Hi {user.firstName}!</h1>
                 <p>Welcome to Lost Ark Tools.</p>
                 <p><Link className="btn btn-primary" to={`/faceting`}>Click here to here started</Link></p>
-                <p style={{ marginTop: '50px' }}>Note: this Dashboard page is a work in progress.</p>
+                <h3 style={{ marginTop: "150px" }}><span className="highlight">Work in progress...</span></h3>
             </div>
         </div>
     );

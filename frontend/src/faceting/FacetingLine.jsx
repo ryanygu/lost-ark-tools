@@ -76,7 +76,7 @@ const FacetingLine = ({ data, lineType, setFacetingData }) => {
 
   return (
     <>
-      <td>{line}</td>
+      <td style={{ whiteSpace: 'nowrap' }}>{line}</td>
       {nodes ? Array.from({ length: 9 }, (x, i) => {
         return <FacetingNode key={i} text={nodes[i]} />
       }) : null}
@@ -84,7 +84,7 @@ const FacetingLine = ({ data, lineType, setFacetingData }) => {
         {label} {data.rate}%
       </td>
       <td style={{ whiteSpace: 'nowrap' }}>
-        <button className="btn btn-sm btn-primary mr-1" value={lineType} onClick={() => handleEngravingClick(data, nodes, lineType)}>Go</button>
+        <button className="btn btn-sm btn-primary mr-1" value={lineType} onClick={() => handleEngravingClick(data, nodes, lineType)}>Go <i class="fa-solid fa-hammer"></i></button>
       </td>
     </>
   )

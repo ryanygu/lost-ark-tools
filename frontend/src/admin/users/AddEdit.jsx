@@ -10,7 +10,7 @@ function AddEdit({ history, match }) {
     const isAddMode = !id;
     
     const initialValues = {
-        title: '',
+        username: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -20,8 +20,8 @@ function AddEdit({ history, match }) {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string()
-            .required('Title is required'),
+        username: Yup.string()
+            .required('Username is required'),
         firstName: Yup.string()
             .required('First Name is required'),
         lastName: Yup.string()
@@ -81,7 +81,7 @@ function AddEdit({ history, match }) {
                     if (!isAddMode) {
                         // get user and set form fields
                         accountService.getById(id).then(user => {
-                            const fields = ['title', 'firstName', 'lastName', 'email', 'role'];
+                            const fields = ['username', 'firstName', 'lastName', 'email', 'role'];
                             fields.forEach(field => setFieldValue(field, user[field], false));
                         });
                     }
@@ -92,15 +92,9 @@ function AddEdit({ history, match }) {
                         <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
                         <div className="form-row">
                             <div className="form-group col">
-                                <label>Title</label>
-                                <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
-                                </Field>
-                                <ErrorMessage name="title" component="div" className="invalid-feedback" />
+                                <label>Username</label>
+                                <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
+                                <ErrorMessage name="username" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>First Name</label>

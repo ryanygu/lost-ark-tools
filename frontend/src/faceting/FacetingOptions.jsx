@@ -56,8 +56,8 @@ const FacetingOptions = ({ data, setFacetingData }) => {
   }
 
   return (
-    <div>
-      <div>
+    <div className="mt-4">
+      {/*<div>
         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Stone Rarity (coming soon)
         </button>
@@ -67,8 +67,7 @@ const FacetingOptions = ({ data, setFacetingData }) => {
           <li className="dropdown-item">Legendary</li>
           <li className="dropdown-item">Relic</li>
         </ul>
-      </div>
-      <br/>
+      </div>*/}
       <button onClick={() => handleFacetingReset()} className="btn btn-danger">Reset</button>
       <button onClick={() => handleFacetingSave()} className="btn btn-primary mr-1" style={{ "marginLeft": "10px" }}>Save</button>
     </div>

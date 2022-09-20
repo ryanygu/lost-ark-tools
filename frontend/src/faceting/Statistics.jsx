@@ -48,6 +48,12 @@ function Statistics ({ match, history }) {
     const sum = scores.reduce((a, b) => a + b, 0)
     const avg = (sum / scores.length).toFixed(2) || 0
 
+    const mockData = {
+            lowestScore: 2,
+            highestScore: 20,
+            averageScore: 7,
+    }
+
     const options = {
         responsive: true,
         plugins: {
@@ -75,13 +81,45 @@ function Statistics ({ match, history }) {
 
     return (
         <div>
-            <button type="button" onClick={() => history.goBack()} className="btn btn-outline-primary"><ArrowLeft/> Back</button>
+            <button type="button" onClick={() => history.goBack()} className="btn btn-outline-primary remove-btn-outline"><ArrowLeft/> Back</button>
             <h1>Statistics</h1>
-            <p>Attempts: {scores.length}</p>
-            <p>Min: {min}</p>
-            <p>Max: {max}</p>
-            <p>Average: {avg}</p>
-            <div><Line options={options} data={data} /></div>
+            <h3 className="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Egestas fringilla phasellus faucibus scelerisque eleifend.</h3>
+
+            <h3 className="mt-3"><span className="highlight">Coming soon:</span> compare by username search, display chart visualization by category (i.e. only Relic stones, or only show statistics for the past X days)</h3>
+
+
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Number of attempts</th>
+                        <th scope="col">Average score</th>
+                        <th scope="col">Lowest score</th>
+                        <th scope="col">Highest score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {/* TODO: add actual data */}
+                        <th scope="row">LOATools Data</th>
+                        <td>N/A</td>
+                        <td>{mockData.averageScore}</td>
+                        <td>{mockData.lowestScore}</td>
+                        <td>{mockData.highestScore}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">You</th>
+                        <td>{scores.length}</td>
+                        <td>{avg}</td>
+                        <td>{min}</td>
+                        <td>{max}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div className="col-9 mt-5 mx-auto">
+                <Line options={options} data={data} />
+            </div>
         </div>
     );
 }

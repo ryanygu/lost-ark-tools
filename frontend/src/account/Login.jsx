@@ -35,30 +35,33 @@ function Login({ history, location }) {
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
+                
                 <Form>
-                    <h3 className="card-header">Login</h3>
+                    <h1 className="text-center">Login</h1>
                     <div className="card-body" id="login">
-                        <div className="form-row">
+                        <div className="form-row mb-3">
                             <label>Email</label>
                             <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                             <ErrorMessage name="email" component="div" className="invalid-feedback" />
                         </div>
-                        <div className="form-row">
+                        <div className="form-row mb-3">
                             <label>Password</label>
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
-                        <div className="form-group row justify-content-between form-buttons-bottom">
+                        <div className="form-group row mb-3 justify-content-between">
                             <div className="form-group col-4">
-                                <button type="submit" disabled={isSubmitting} className="btn btn-primary">
+                                <button type="submit" disabled={isSubmitting} className="btn btn-primary px-3 rounded-pill">
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Login
                                 </button>
+                            </div>
+                            <div className="form-group col-4 text-end">
                                 <Link to="register" className="btn btn-link">Register</Link>
                             </div>
-                            <div className="form-group col-4">
-                                <Link to="forgot-password" className="btn btn-link pr-0">Forgot Password?</Link>
-                            </div>
+                        </div>
+                        <div className="form-group row text-center">
+                            <Link to="forgot-password" className="btn btn-link pr-0">Forgot Password?</Link>
                         </div>
                     </div>
                 </Form>
