@@ -2,7 +2,7 @@
 
 # Lost Ark Tools
 
-Link: [http://ec2-3-142-99-145.us-east-2.compute.amazonaws.com/](http://ec2-3-142-99-145.us-east-2.compute.amazonaws.com/)
+Link (hosted on AWS): [http://3.20.66.121/](http://3.20.66.121/)
 
 Pre-generated test account:
 ```
